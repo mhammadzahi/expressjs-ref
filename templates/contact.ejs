@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> <%= title %> </title>
+    <link rel="stylesheet" href="css/contact-styles.css">
+</head>
+<body>
+    <header>
+        <h1>Contact Us</h1><br>
+        <%=ammount%>
+    </header>
+    <div class="container">
+        <form>
+            <input type="text" id="name" placeholder="Your Name">
+            <input type="text" id="emailaddress" placeholder="Email Address">
+            <textarea id="msg" placeholder="Your Message"></textarea>
+            <button type="submit" onclick="sendContactVals(event)">Send Message</button>
+        </form>
+        <br>
+        <a href="/">go home</a>
+    </div>
+    <script src="/js/contact-script.js"></script>
+</body>
+</html>
