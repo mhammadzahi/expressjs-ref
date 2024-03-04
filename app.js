@@ -5,14 +5,13 @@ const myScript = require('./scripts/myScript');
 
 
 
-
 const app = express();
 const port = 3000;
 
 // Set EJS as the view engine
 app.set('view engine', 'ejs');
 
-// Set the directory for your views (optional if using default 'views' directory)
+// optional if using default 'views' directory
 app.set('views', './templates');
 
 app.use(express.static('static'))
@@ -49,6 +48,10 @@ app.get('/contact', (req, res) => {
     };
     res.render('contact', data)
     
+});
+
+app.get('/contact-v2', (req, res) => {
+    res.redirect('/contact');
 });
 
 app.post('/sendContactVals', (req, res) => {
