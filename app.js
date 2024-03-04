@@ -1,6 +1,8 @@
 const express = require('express');
 const session = require('express-session');
-const bodyParser = require('body-parser');
+const bodyParser = require('body-parser');// json
+const myScript = require('./scripts/myScript');
+
 
 
 
@@ -24,6 +26,8 @@ app.use(session({
 }));
 
 app.get('/', (req, res) => {
+    myScript.sayHello();
+    myScript.sayHi();
     let username = req.session.username || 'Muhammad';
 
     if(!req.session.username){
