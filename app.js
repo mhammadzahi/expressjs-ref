@@ -14,7 +14,7 @@ app.set('view engine', 'ejs');
 // optional if using default 'views' directory
 app.set('views', './templates');
 
-app.use(express.static('static'))
+app.use(express.static('static'));
 app.use(bodyParser.json());
 
 // express-session middleware
@@ -24,13 +24,16 @@ app.use(session({
     saveUninitialized: true,
 }));
 
+
 app.get('/', (req, res) => {
+
     myScript.sayHello();
     myScript.sayHi();
-    let username = req.session.username || 'Muhammad';
+
+    let username = req.session.username || 'Muhammad-1';
 
     if(!req.session.username){
-        req.session.username = 'Muhammad';
+        req.session.username = 'Muhammad-2';
     }
 
     const data = {
@@ -46,8 +49,7 @@ app.get('/contact', (req, res) => {
         title: 'Contact-45',
         ammount: 45
     };
-    res.render('contact', data)
-    
+    res.render('contact', data);
 });
 
 app.get('/contact-v2', (req, res) => {
@@ -56,8 +58,13 @@ app.get('/contact-v2', (req, res) => {
 
 app.post('/sendContactVals', (req, res) => {
     console.log(req.body);
-    res.json({ message: 'POST request received successfully!' });
+    resp = {
+        message0: 'msg0',
+        message: 'msg'
+    };
+    res.json(resp);
 });
+
 
 app.listen(port, () => {
     console.log(`Server running at http://localhost:${port}/`);
