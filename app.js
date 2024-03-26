@@ -1,8 +1,7 @@
 const express = require('express');
 const session = require('express-session');
-const bodyParser = require('body-parser');// json
+const bodyParser = require('body-parser');// json response
 const myScript = require('./scripts/myScript');
-
 
 
 const app = express();
@@ -19,7 +18,7 @@ app.use(bodyParser.json());
 
 // express-session middleware
 app.use(session({
-    secret: 'yedwsmrdmwsajufdey',
+    secret: 'yedwyhmrdmwsajufdey',
     resave: false,
     saveUninitialized: true,
 }));
@@ -44,6 +43,7 @@ app.get('/', (req, res) => {
     res.render('index', data);
 });
 
+
 app.get('/contact', (req, res) => {
     const data = {
         title: 'Contact-45',
@@ -52,9 +52,11 @@ app.get('/contact', (req, res) => {
     res.render('contact', data);
 });
 
+
 app.get('/contact-v2', (req, res) => {
     res.redirect('/contact');
 });
+
 
 app.post('/sendContactVals', (req, res) => {
     console.log(req.body);
