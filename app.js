@@ -14,6 +14,7 @@ app.set('view engine', 'ejs');
 app.set('views', './templates');
 
 app.use(express.static('static'));
+
 app.use(bodyParser.json());
 
 // express-session middleware
@@ -67,6 +68,13 @@ app.post('/sendContactVals', (req, res) => {
     res.json(resp);
 });
 
+app.get('/user/:id', (req, res) => {
+    
+    const data = {
+        userId: req.params.id
+    }
+    res.render('userId', data);
+})
 
 app.listen(port, () => {
     console.log(`Server running at http://localhost:${port}/`);
