@@ -13,13 +13,14 @@ app.set('view engine', 'ejs');
 // optional if using default 'views' directory
 app.set('views', './templates');
 
+// image, css, js, etc. static files
 app.use(express.static('static'));
 
 app.use(bodyParser.json());
 
 // express-session middleware
 app.use(session({
-    secret: 'yedwyhmrdmwsajufdey',
+    secret: 'yEdw5dwR9ey8W9T',
     resave: false,
     saveUninitialized: true,
 }));
@@ -59,7 +60,7 @@ app.get('/contact-v2', (req, res) => {
 });
 
 
-app.post('/sendContactVals', (req, res) => {
+app.post('/send-contacts', (req, res) => {
     console.log(req.body);
     resp = {
         message0: 'msg0',

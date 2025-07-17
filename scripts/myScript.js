@@ -5,8 +5,12 @@ function sayHello(){
 function sayHi(){
     console.log('Hi');
 }
+function sayGoodbye(){
+    console.log('Goodbye');
+}
 
 module.exports = {
     sayHello,
-    sayHi
+    sayHi,
+    sayGoodbye
 }
